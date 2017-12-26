@@ -1,0 +1,2 @@
+class Soda < ApplicationRecord
+end
