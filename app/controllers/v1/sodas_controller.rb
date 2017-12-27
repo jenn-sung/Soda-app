@@ -22,5 +22,20 @@ class V1::SodasController < ApplicationController
       render json: {errors: soda.errors.full_messages}
     end
   end
+
+  def update
+    soda = Soda.find_by(id: params[:id])
+    if soda.update(
+    name: params[:name],
+    flavor: params[:flavor],
+    carbonated: params[:carbonated],
+    price: params[:price]
+    )
+      render json: soda.as_json
+    else
+      render  json: {errors: soda.errors.full_messages} 
+    end
+  end
+
 end
 
